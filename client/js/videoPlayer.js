@@ -2,6 +2,7 @@ export const videoPlayerInit = () =>{
 
 
     const videoPlayer = document.querySelector('.video-player'),
+        videoVolume = document.querySelector('.video-volume'),
         videoButtonPlay = document.querySelector('.video-button__play'),
         videoButtonStop = document.querySelector('.video-button__stop'),
         videoTimePassed = document.querySelector('.video-time__passed'),
@@ -64,4 +65,10 @@ export const videoPlayerInit = () =>{
 
         videoPlayer.currentTime = (value * duration) / 100;
     });
+
+    videoVolume.addEventListener('input', () =>{
+        videoPlayer.volume = videoVolume.value / 100
+    })
+    videoPlayer.volume = 0.5;
+    videoVolume.value = videoPlayer.volume * 100;
 }
